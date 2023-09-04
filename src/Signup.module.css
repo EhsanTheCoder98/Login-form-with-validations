@@ -2,7 +2,7 @@
     border:1px solid black;
     border-radius: 10px;
     padding:  30px ;
-    height: 60vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,6 +16,24 @@
 .container form h2 {
     padding-left: 11px;
     padding-bottom: 20px;
+}
+.container form div input {
+    border: none;
+    outline: none;
+    height: 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+.last {
+    margin: 20px;
+    display: flex;
+}
+.last input{
+    margin-left:10px ;
+    width: 16px;
+    height: 16px;
+    border: 1px solid black;
+    border-radius: 50% ;
 }
 .login {
     margin-left: 18px;
