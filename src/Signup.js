@@ -17,7 +17,7 @@ const Signup = () => {
   useEffect(() => {
     setErrors(validate(data));
     console.log(errors);
-  }, [data , touched]);
+  }, [data, touched]);
 
   const changeHandler = (event) => {
     if (event.target.name === "Accept") {
@@ -30,12 +30,23 @@ const Signup = () => {
   };
 
   const focused = (event) => {
-    setTouched({...touched , [event.target.name] : true})
-  }
+    setTouched({ ...touched, [event.target.name]: true });
+  };
 
-  const submitHandler = () => {
-
-  }
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (!Object.keys(errors)) {
+      console.log(errors);
+    } else {
+      setTouched({
+        name: true,
+        email: true,
+        password: true,
+        confirmPassword:true,
+        Accept:true,
+      });
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -43,12 +54,24 @@ const Signup = () => {
         <h2>Sign Up</h2>
         <div className={styles.con}>
           <label for="name">Name </label>
-          <input type="text" id="name" name="name" onChange={changeHandler} onBlur={focused} />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            onChange={changeHandler}
+            onBlur={focused}
+          />
           {errors.name && touched.name && <span>{errors.name}</span>}
         </div>
         <div className={styles.con}>
           <label for="email">Email </label>
-          <input type="text" id="email" name="email" onChange={changeHandler} onBlur={focused} />
+          <input
+            type="text"
+            id="email"
+            name="email"
+            onChange={changeHandler}
+            onBlur={focused}
+          />
           {errors.email && touched.email && <span>{errors.email}</span>}
         </div>
         <div className={styles.con}>
@@ -57,9 +80,12 @@ const Signup = () => {
             type="password"
             id="password"
             name="password"
-            onChange={changeHandler}  onBlur={focused}
+            onChange={changeHandler}
+            onBlur={focused}
           />
-          {errors.password && touched.password && <span>{errors.password}</span>}
+          {errors.password && touched.password && (
+            <span>{errors.password}</span>
+          )}
         </div>
         <div className={styles.con}>
           <label for="ConfirmPassword">ConfirmPassword </label>
@@ -67,9 +93,12 @@ const Signup = () => {
             type="password"
             id="ConfirmPassword"
             name="confirmPassword"
-            onChange={changeHandler}  onBlur={focused}
+            onChange={changeHandler}
+            onBlur={focused}
           />
-          {errors.confirmPassword && touched.confirmPassword && <span>{errors.confirmPassword}</span>}
+          {errors.confirmPassword && touched.confirmPassword && (
+            <span>{errors.confirmPassword}</span>
+          )}
         </div>
         <div className={styles.last}>
           <label for="Accept">Accept our terms </label>
@@ -77,14 +106,15 @@ const Signup = () => {
             type="checkbox"
             id="Accept"
             name="Accept"
-            onChange={changeHandler}  onBlur={focused}
+            onChange={changeHandler}
+            onBlur={focused}
           />
         </div>
-          {errors.Accept && touched.Accept && <span>{errors.Accept}</span>}
+        {errors.Accept && touched.Accept && <span>{errors.Accept}</span>}
         <div>
-        <button type="submit" className={styles.submit}>
-          Submit
-        </button>
+          <button type="submit" className={styles.submit}>
+            Submit
+          </button>
         </div>
       </form>
     </div>

@@ -24,7 +24,7 @@ const validate = (data) => {
     !data.confirmPassword ||
     data.confirmPassword !== data.password
   ) {
-    error.confirmPassword = "Does not match!";
+    error.confirmPassword = "Do not match!";
   } else {
     delete error.confirmPassword;
   }
