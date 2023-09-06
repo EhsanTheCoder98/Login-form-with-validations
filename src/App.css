@@ -7,5 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url(./Background/@Wallpaper_4K3D\ \(3240\).jpg);
+    background-size: 100%;
     height: 100vh;
 }
