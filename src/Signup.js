@@ -1,5 +1,6 @@
-import React , {useState} from "react";
+import React , {useState,useEffect} from "react";
 import styles from "./Signup.module.css";
+import validate from "./validate";
 
 const Signup = () => {
   const [data,setData] = useState({
@@ -9,6 +10,13 @@ const Signup = () => {
     confirmPassword:"",
     Accept:false,
   })
+  
+  const [errors,setErrors] = useState({});
+
+  useEffect(()=>{
+    setErrors(validate(data));
+    console.log(errors)
+  },[data])
 
   const changeHandler = (event) => {
     if(event.target.name === "Accept"){
