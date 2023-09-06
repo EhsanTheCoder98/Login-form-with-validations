@@ -25,7 +25,6 @@
     text-align: center;
 }
 .last {
-    margin: 20px;
     display: flex;
 }
 .last input{
@@ -35,18 +34,24 @@
     border: 1px solid black;
     border-radius: 50% ;
 }
-.login {
-    margin-left: 18px;
-    margin-right: 90px;
-    padding: 3px;
-    cursor: pointer;
-    min-width: 50px;
+.con {
+    display: flex;
+    flex-direction: column;
 }
+
 .submit {
     padding: 3px;
     cursor: pointer;
     min-width: 50px;
+    margin-left: 35%;
 }
-.login :hover {
-    color: red;
+
+span {
+    background-color: rgba(240, 57, 57, 0.36);
+    border-radius: 5px;
+    padding: 2px;
+    margin-top: 2px;
+    font-size: small;
+    color: rgb(192, 1, 1);
+    text-align: center;
 }

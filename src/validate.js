@@ -13,17 +13,18 @@ const validate = (data) => {
   } else {
     delete error.email;
   }
-  if (data.password.lenght < 6) {
-    error.password = "Password should be at least 6 charecters";
-  } else {
+  if(!data.password){
+    error.password = "Enter Password"
+  }else if (data.password.length < 6 ) {
+    error.password = "at least 6 charecters";
+  }else {
     delete error.password;
   }
   if (
     !data.confirmPassword ||
-    data.confirmPassword !== data.password ||
-    data.confirmPassword.lenght < 6
+    data.confirmPassword !== data.password
   ) {
-    error.confirmPassword = "Does not match with your password!";
+    error.confirmPassword = "Does not match!";
   } else {
     delete error.confirmPassword;
   }
