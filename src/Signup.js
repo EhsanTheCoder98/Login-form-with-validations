@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Signup.module.css";
 import validate from "./validate";
+import notify from "./toast";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -35,15 +39,16 @@ const Signup = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (!Object.keys(errors)) {
-      console.log(errors);
+    if (!Object.keys(errors).length) {
+      notify("Successfuly joined", "success");
     } else {
+      notify("Failed to join", "error");
       setTouched({
         name: true,
         email: true,
         password: true,
-        confirmPassword:true,
-        Accept:true,
+        confirmPassword: true,
+        Accept: true,
       });
     }
   };
@@ -117,6 +122,7 @@ const Signup = () => {
           </button>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };
