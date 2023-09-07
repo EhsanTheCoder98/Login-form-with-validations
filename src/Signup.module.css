@@ -8,11 +8,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.144);
+    background-color: rgba(255, 255, 255, 0.185);
 }
 .container:hover{
-    background-color: rgba(75, 75, 75, 0.404);
-
+    background-color: rgba(75, 75, 75, 0.258);
+    transition: all 0.1s linear;
 }
 .container form div {
     padding: 15px;
@@ -67,4 +67,10 @@ span {
     color: rgb(255, 255, 255);
     text-align: center;
     display: block;
+}
+
+a {
+    text-decoration : none;
+    color:white;
+    font-weight: 700;
 }
